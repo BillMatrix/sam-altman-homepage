@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sam Altman: A Journey of Innovation | Sam Altman：一位创新者的旅程</title>
+    <style>
+        :root {
+            --primary: #0066cc;
+            --secondary: #333;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --accent: #ff6b6b;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(135deg, #0066cc, #004080);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: #f0f0f0;
+            text-decoration: underline;
+        }
+        .hero {
+            padding-top: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding-bottom: 3rem;
+        }
+        .hero-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease;
+        }
+        .hero-image:hover {
+            transform: scale(1.05);
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin-bottom: 2rem;
+            color: #555;
+        }
+        section {
+            padding: 4rem 0;
+        }
+        section:nth-child(even) {
+            background-color: white;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary);
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--primary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -12px;
+            background-color: white;
+            border: 4px solid var(--primary);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .left {
+            left: 0;
+        }
+        .right {
+            left: 50%;
+        }
+        .right::after {
+            left: -12px;
+        }
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .timeline-content h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        .projects {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 300px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+        .project-img {
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        .project-info {
+            padding: 1.5rem;
+        }
+        .project-info h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        .quotes {
+            background: linear-gradient(135deg, #0066cc, #004080);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        .quote {
+            max-width: 800px;
+            margin: 0 auto;
+            font-style: italic;
+            font-size: 1.3rem;
+            line-height: 1.8;
+        }
+        .quote-author {
+            margin-top: 1rem;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+            gap: 1.5rem;
+        }
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .social-icon:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-5px);
+        }
+        .copyright {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            .nav-links {
+                position: fixed;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background: var(--primary);
+                flex-direction: column;
+                align-items: center;
+                padding: 1rem 0;
+                transform: translateY(-150%);
+                transition: transform 0.3s ease;
+                z-index: 999;
+            }
+            .nav-links.active {
+                transform: translateY(0);
+            }
+            .nav-links li {
+                margin: 1rem 0;
+            }
+            .timeline::after {
+                left: 31px;
+            }
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            .timeline-item::after {
+                left: 18px;
+            }
+            .right {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Sam Altman</div>
+                <button class="mobile-menu-btn">☰</button>
+                <ul class="nav-links">
+                    <li><a href="#about">简介</a></li>
+                    <li><a href="#career">职业生涯</a></li>
+                    <li><a href="#projects">项目</a></li>
+                    <li><a href="#philosophy">个人理念</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <img src="https://media.wired.com/photos/655cf58564de22446963f396/master/pass/Sam-Altman-OpenAI-Return-Business-1258197415.jpg" alt="Sam Altman" class="hero-image">
+            <h1>Sam Altman: A Journey of Innovation</h1>
+            <p>Sam Altman：一位创新者的旅程</p>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">简介</h2>
+            <p>Sam Altman是一位杰出的企业家、投资者和技术领袖，以其在人工智能领域的开创性工作而闻名。他曾担任Y Combinator总裁，目前是OpenAI的CEO，致力于确保通用人工智能（AGI）造福全人类。Altman的职业生涯充满了创新和变革，从早期创立Loopt，到领导YC成为全球最具影响力的创业加速器，再到推动OpenAI开发革命性的AI技术，他一直站在技术前沿。</p>
+        </div>
+    </section>
+
+    <section id="career">
+        <div class="container">
+            <h2 class="section-title">职业生涯</h2>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>早期生涯</h3>
+                        <p>2005年，Sam Altman从斯坦福大学计算机科学专业辍学，与人共同创立了基于地理位置的社交应用Loopt。该公司是Y Combinator首批投资的初创公司之一，最终在2012年以4340万美元的价格被Green Dot Corporation收购。</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>Y Combinator时期</h3>
+                        <p>2014年，Altman被任命为YC总裁，目标是每年资助1000家新公司，并将投资范围扩大到"硬核科技"领域。他推出了YC Continuity基金（用于成长期投资）和YC Research（非营利研究实验室），后者孵化了OpenAI。在他的领导下，YC的生态系统和影响力达到了新的高度。</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>OpenAI时期</h3>
+                        <p>2015年，与Elon Musk等人共同创立OpenAI，旨在确保通用人工智能（AGI）造福全人类。2019年成为OpenAI CEO，领导开发了GPT系列模型和ChatGPT，并推动公司转向"有限盈利"模式，获得了微软的数十亿美元投资。尽管在2023年11月曾被短暂解雇，但很快在员工和投资者的支持下复职。</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>投资版图</h3>
+                        <p>他是一位活跃的投资者，投资组合超过400家公司，总价值至少28亿美元。重点投资领域包括人工智能（如Humane, Rain AI）、生物科技与长寿（如Retro Biosciences）、清洁能源（如Helion Energy, Oklo Inc.）。他也是Stripe和Reddit的早期投资者。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">相关项目</h2>
+            <div class="projects">
+                <div class="project-card">
+                    <img src="https://the-decoder.com/wp-content/uploads/2025/02/openai_logo_ocean.png" alt="OpenAI" class="project-img">
+                    <div class="project-info">
+                        <h3>OpenAI</h3>
+                        <p>OpenAI是一家人工智能研究实验室，致力于确保通用人工智能（AGI）造福全人类。公司开发了GPT系列模型和ChatGPT等革命性产品。</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Y_Combinator_logo.svg/1200px-Y_Combinator_logo.svg.png" alt="Y Combinator" class="project-img">
+                    <div class="project-info">
+                        <h3>Y Combinator</h3>
+                        <p>Y Combinator是全球最具影响力的创业加速器，已投资了Airbnb、Dropbox、Stripe等成功公司。Sam Altman曾担任YC总裁，大幅扩展了其规模和影响力。</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://images.prismic.io/worldcoin-company-website/ZpYzdx5LeNNTxLpj_WorldChainDeveloperPreview-Meta.png?auto=format%2Ccompress&w=3840" alt="Worldcoin" class="project-img">
+                    <div class="project-info">
+                        <h3>Worldcoin</h3>
+                        <p>Worldcoin是一个由Sam Altman共同创立的加密货币项目，旨在创建一个全球性的数字身份和金融网络，通过虹膜扫描技术验证人类身份。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="philosophy" class="quotes">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">个人理念与愿景</h2>
+            <div class="quote">
+                "我的终极愿景是实现AGI，并将其打造成为解决世界最复杂问题的'世界大脑'。AI将使智能成本趋近于零，从而创造巨大财富。我们需要通过对最有价值的资产征税，并以'全民基本收入'的形式重新分配财富，以应对AI带来的社会变革。"
+                <div class="quote-author">— Sam Altman</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <h3>联系方式</h3>
+            <div class="social-links">
+                <a href="#" class="social-icon">T</a>
+                <a href="#" class="social-icon">L</a>
+                <a href="#" class="social-icon">G</a>
+            </div>
+            <p class="copyright">© 2023 Sam Altman. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+            
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', function() {
+                    navLinks.classList.remove('active');
+                });
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        const headerHeight = document.querySelector('header').offsetHeight;
+                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Add animation to timeline items when they come into view
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('.timeline-item').forEach(item => {
+                item.style.opacity = 0;
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(item);
+            });
+        });
+    </script>
+</body>
+</html>
